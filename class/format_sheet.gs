@@ -38,24 +38,25 @@ class FormatSheet {
 
     const urlExt = [];
     for (const optName in opts) {
-      console.log(optName);
       urlExt.push(optName + '=' + opts[optName]);
     }
 
     const options = urlExt.join('&');
 
-    console.log(options);
+    // console.log(options);
     const token = ScriptApp.getOAuthToken();
+    console.log('url', url);
     const response = UrlFetchApp.fetch(url + options, {
       headers: {
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token,
+        'muteHttpExceptions': true
       }
     });
 
     const time = Utilities.formatDate(new Date(), 'JST', 'HH:mm:ss');
-    const blob = response.getBlob().setName(fileName + '_' + time + '_' + '.pdf');
+    // const blob = response.getBlob().setName(fileName + '_' + time + '_' + '.pdf');
+    const blob = response.getBlob().setName(fileName);
     folder.createFile(blob);  //　PDFを指定したフォルダに保存
-    return this;
   }
 
   delete() {

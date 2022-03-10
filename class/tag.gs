@@ -30,23 +30,23 @@ class Tag {
 
   makeOutsourcingFee() {
 
-    return ''
+    return 'a'
 
   }
 
   makeWorkLocation() {
-    return ''
+    return 'b'
 
   }
 
 
   makeOtherConditions() {
 
-    return ''
+    return 'c'
   }
 
   hoge() {
-    return ''
+    return 'k'
   }
 
 

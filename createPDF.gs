@@ -12,15 +12,9 @@
 
 function createPDF() {
 
-
-
-
-
-  return;
-
   const ss = SpreadsheetApp.getActiveSpreadsheet();
 
-  const sht = ss.getSheetByName(SHEET.DATE.NAME);
+  const sht = ss.getSheetByName(SHEET.DATA.NAME);
   let values = sht.getDataRange().getValues()
   const header = values.shift();
   values = values.filter(record => record[0]);
@@ -279,6 +273,7 @@ function exportAsPDF_(spreadSheetId, shtId, fileName) {
   const options = urlExt.join('&');
 
   console.log(options);
+  console.log(url);
   const token = ScriptApp.getOAuthToken();
   const response = UrlFetchApp.fetch(url + options, {
     headers: {
