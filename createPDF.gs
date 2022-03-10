@@ -1,3 +1,15 @@
+/**
+・日付操作
+・シートクラス
+・PDFクラス
+・タグ操作のクラス
+・文字列の変換
+　・半角⇒全角
+　・カンマ追加
+ */
+
+
+
 function createPDF() {
 
   const ss = SpreadsheetApp.getActiveSpreadsheet();

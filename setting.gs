@@ -1,6 +1,6 @@
 
 const SHEET = Object.freeze({
-  DATE: {
+  DATA: {
     NAME: '個別仕様書'
   },
   PDFFORMAT: {
