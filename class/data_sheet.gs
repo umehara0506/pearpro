@@ -1,4 +1,4 @@
-class dataSheet {
+class DataSheet {
 
   constructor() {
     this.sheet = SS.getSheetByName(SHEET.DATA.NAME);
