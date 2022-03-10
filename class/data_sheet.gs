@@ -6,12 +6,15 @@ class dataSheet {
     [this.headers, ...this.records] = this.values;
   }
 
+
+  /**
+   * @return {} 
+   */
   getPdfDicts() {
     const dicts = this.getAsDicts();
     const pdfDicts = dicts.filter(dict => dict.get('PDF対象') === true);
     return pdfDicts;
   }
-
 
   /**
    * シートの値から、ヘッダー情報をプロパティとして持つ Map 型を生成するメソッド

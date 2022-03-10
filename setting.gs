@@ -3,7 +3,7 @@ const SHEET = Object.freeze({
   DATA: {
     NAME: '個別仕様書'
   },
-  PDFFORMAT: {
+  PDF_FORMAT: {
     NAME: 'FORMAT',
     RANGE: 'B3%3AI25'  // 対象範囲「%3A」 = : (コロン)
   }

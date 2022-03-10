@@ -4,13 +4,19 @@
 ・PDFクラス
 ・タグ操作のクラス
 ・文字列の変換
-　・半角⇒全角
-　・カンマ追加
+ ・半角⇒全角
+ ・カンマ追加
  */
 
 
 
 function createPDF() {
+
+
+
+
+
+  return;
 
   const ss = SpreadsheetApp.getActiveSpreadsheet();
 
@@ -185,9 +191,9 @@ function createPDF() {
   }
 
   console.log({ CHANGE_COLUMNS });
-  const formatSht = ss.getSheetByName(SHEET.PDFFORMAT.NAME);
+  const formatSht = ss.getSheetByName(SHEET.PDF_FORMAT.NAME);
 
-  
+
   for (const record of values) {
     const copyiedSht = formatSht.copyTo(ss);
 
@@ -261,7 +267,7 @@ function exportAsPDF_(spreadSheetId, shtId, fileName) {
     pagenumbers: 'false',    // ページ番号の有無
     gridlines: 'false',    // グリッドラインの表示有無
     fzr: 'false',    // 固定行の表示有無
-    range: SHEET.PDFFORMAT.RANGE,  // 対象範囲「%3A」 = : (コロン)  
+    range: SHEET.PDF_FORMAT.RANGE,  // 対象範囲「%3A」 = : (コロン)  
     gid: shtId    // シート ID を指定 (省略する場合、すべてのシートをダウンロード)
   };
 
