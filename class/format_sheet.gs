@@ -1,13 +1,29 @@
 class FormatSheet {
 
-  constructor(sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET.PDF_FORMAT.NAME)) {
+  constructor(sheet = SS.getSheetByName(SHEET.PDF_FORMAT.NAME)) {
     this.sheet = sheet;
   }
 
-  replaceAllText(before, after) {
-    const textFinder = this.sheet.createTextFinder(before);
-    textFinder.replaceAllWith(after);
+
+  copy() {
+    const newSheet = this.sheet.copyTo(SS);
+    return new FormatSheet(newSheet);;
   }
+
+  replaceAllText(sheet, before, after) {
+    const textFinder = sheet.createTextFinder(before);
+    textFinder.replaceAllWith(after);
+    return new FormatSheet(sheet);
+  }
+
+  createPdf(sheet) {
+    return new FormatSheet(sheet);
+  }
+
+  delete() {
+
+  }
+  
 
 }
 

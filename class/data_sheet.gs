@@ -1,7 +1,7 @@
 class dataSheet {
 
   constructor() {
-    this.sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET.DATA.NAME);
+    this.sheet = SS.getSheetByName(SHEET.DATA.NAME);
     this.values = this.sheet.getDataRange().getValues();
     [this.headers, ...this.records] = this.values;
   }

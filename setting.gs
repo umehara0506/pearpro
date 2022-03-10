@@ -1,3 +1,4 @@
+const SS = SpreadsheetApp.getActiveSpreadsheet();
 
 const SHEET = Object.freeze({
   DATA: {
@@ -14,3 +15,16 @@ const FOLDER = Object.freeze({
     ID: '1-hditthwkYn4ZwqXjILUsUiC6MSVFSt8'
   }
 });
+
+
+// const TAGS = Object.freeze([
+//   {NAME: '契約先名（乙）', '委託費(月額)', '委託期間(ヶ月)', '貸与物', '勤務地1', '勤務地2'},
+//   {NAME: '業務内容'},
+//   {NAME: '受託開始期間'},
+//   {NAME: '受託終了期間'},
+//   {NAME: '委託費(合計)'},
+//   {NAME: },
+//   {NAME: },
+//   {NAME: },
+//   {NAME: }
+// ]);
