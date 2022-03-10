@@ -17,14 +17,15 @@ const FOLDER = Object.freeze({
 });
 
 
-// const TAGS = Object.freeze([
-//   {NAME: '契約先名（乙）', '委託費(月額)', '委託期間(ヶ月)', '貸与物', '勤務地1', '勤務地2'},
-//   {NAME: '業務内容'},
-//   {NAME: '受託開始期間'},
-//   {NAME: '受託終了期間'},
-//   {NAME: '委託費(合計)'},
-//   {NAME: },
-//   {NAME: },
-//   {NAME: },
-//   {NAME: }
-// ]);
+const HEADRES = Object.freeze([
+  { NAME: '契約先名（乙）' },
+  { NAME: '委託費(月額)' },
+  { NAME: '委託期間(ヶ月)' },
+  { NAME: '貸与物' },
+  { NAME: '勤務地1' },
+  { NAME: '勤務地2' },
+  { NAME: '業務内容' },
+  { NAME: '受託開始期間' },
+  { NAME: '受託終了期間' },
+  { NAME: '委託費(合計)' },
+]);
