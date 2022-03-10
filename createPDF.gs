@@ -167,6 +167,7 @@ function createPDF() {
     },
   };
 
+  /** indexプロパティをここで追加 */
   for (const key in CHANGE_COLUMNS) {
     CHANGE_COLUMNS[key]['index'] = header.indexOf(key);
   }
@@ -174,19 +175,21 @@ function createPDF() {
   console.log({ CHANGE_COLUMNS });
   const formatSht = ss.getSheetByName(SHEET.PDFFORMAT.NAME);
 
-
+  
   for (const record of values) {
     const copyiedSht = formatSht.copyTo(ss);
 
     // 1record毎にFormatのタグを変更していく
     for (const key in CHANGE_COLUMNS) {
+
+      /** getIndexメソッドとrangeプロパティが空白の場合はスキップ */
       if (key === 'getIndex') continue;
       if (CHANGE_COLUMNS[key]['range'] === null) continue;
 
-      // console.log({key});
+      /** makeTextメソッドで置換内容のテキストデータを作成 */
       const chengeValue = CHANGE_COLUMNS[key].makeText(record);
 
-      /** 変更する元のテキストを取得して{{tag}}の内容を変更⇒置き換えを実施 */
+      /** rangeプロパティからのRangeからデータ取得して、{{tag}}の内容を置換 */
       const chageText = copyiedSht.getRange(CHANGE_COLUMNS[key]['range']).getValue();
       const changedText = chageText.replace(`{{${key}}}`, chengeValue);
 
@@ -195,6 +198,7 @@ function createPDF() {
 
     }
 
+    /** オプションで残す行を設定 */
     if (record[CHANGE_COLUMNS['その他諸条件へ変更']['index']] === false) {
       copyiedSht.deleteRow(20);
     }
@@ -205,11 +209,10 @@ function createPDF() {
 
     console.log(CHANGE_COLUMNS);
 
+    /** PDF作成に必要なスプレッドシートID、シートID、ファイル名を作成 */
     const spreadSheetId = ss.getId();
     const copyiedShtId = copyiedSht.getSheetId();
     const fileName = record[CHANGE_COLUMNS['契約先名（乙）']['index']];
-
-    console.log({ fileName });
     exportAsPDF_(spreadSheetId, copyiedShtId, fileName);
 
 
